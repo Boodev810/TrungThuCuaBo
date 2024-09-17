@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trung Thu Của Bơ</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8cfd1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .popup-container {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            text-align: center;
+            width: 300px;
+        }
+
+        .popup-container h2 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #555;
+        }
+
+        .popup-container p {
+            font-size: 16px;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .button-group {
+            display: flex;
+            justify-content: center;
+        }
+
+        .button-group button {
+            background-color: #28a745;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 0 10px;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+        .button-group button:hover {
+            background-color: #218838;
+        }
+
+        .button-group .btn-secondary {
+            background-color: #007bff;
+        }
+
+        .button-group .btn-secondary:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="popup-container">
+        <h2>Bạn là ai đây ????</h2>
+        <p>Chọn cái này xong chút nhớ quành lại chọn cái kia</p>
+
+        <div class="button-group">
+            <a href="./index.html"> <button class="btn-first">Tôi Là Bơ</button> </a>
+           <a href="../trái Tim.HTML"> <button class="btn-secondary">Tôi Là Châu</button> </a>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('check-btn').addEventListener('click', function() {
+            alert('Checking answer...');
+        });
+    </script>
+</body>
+</html>

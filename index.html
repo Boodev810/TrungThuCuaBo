@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trung Thu Của Bơ</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: black;
+            margin: 0;
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* Hiệu ứng bánh trung thu phát sáng */
+        .mooncake {
+            width: 300px;
+            height: 300px;
+            background-color: #d18b47;
+            border-radius: 50%;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            animation: glow 2s infinite alternate;
+        }
+
+        @keyframes glow {
+            0% {
+                box-shadow: 0 0 10px #ffd700, 0 0 20px #ffd700, 0 0 30px #ffa500, 0 0 40px #ffa500;
+            }
+            100% {
+                box-shadow: 0 0 20px #ffd700, 0 0 40px #ffa500, 0 0 60px #ff8c00, 0 0 80px #ff8c00;
+            }
+        }
+
+        .mooncake::before {
+            content: '';
+            position: absolute;
+            width: 280px;
+            height: 280px;
+            background-color: #d18b47;
+            border-radius: 50%;
+            box-shadow: 0 0 10px #ffa500;
+            clip-path: path('M140 0 C165 0 190 15 190 35 C190 55 165 70 140 70 C115 70 90 55 90 35 C90 15 115 0 140 0 Z');
+        }
+
+        .pattern {
+            position: absolute;
+            width: 180px;
+            height: 180px;
+            background-color: transparent;
+            border: 10px solid #d18b47;
+            border-radius: 50%;
+            box-shadow: 0 0 0 5px #f5b778;
+        }
+
+        .pattern::before {
+            content: '';
+            position: absolute;
+            width: 150px;
+            height: 150px;
+            background-color: #f5b778;
+            border-radius: 50%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .center-pattern {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background-color: #d18b47;
+            border-radius: 50%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 24px;
+            color: #f5b778;
+            font-weight: bold;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Hiệu ứng chữ lấp lánh 7 màu */
+        .twinkling-text {
+            margin-top: 60px;
+            font-size: 36px;
+            font-weight: bold;
+            background: linear-gradient(90deg, red, orange, yellow, green, blue, indigo, violet);
+            background-size: 400%;
+            color: transparent;
+            -webkit-background-clip: text;
+            animation: rainbow 3s infinite alternate;
+        }
+
+        @keyframes rainbow {
+            0% {
+                background-position: 0%;
+            }
+            100% {
+                background-position: 100%;
+            }
+        }
+
+        /* Ngôi sao lấp lánh */
+        .star {
+            position: absolute;
+            width: 5px;
+            height: 5px;
+            background-color: white;
+            border-radius: 50%;
+            box-shadow: 0 0 10px white;
+            animation: twinkle 2s infinite ease-in-out alternate;
+        }
+
+        @keyframes twinkle {
+            0% { opacity: 0.2; }
+            100% { opacity: 1; }
+        }
+
+        /* Đèn lồng tròn hơn */
+        .lantern {
+            position: absolute;
+            width: 150px;
+            height: 120px;
+            background-color: red;
+            border-radius: 75px 75px 0 0;
+            box-shadow: 0 0 30px red;
+            top: 10%;
+            animation: float 4s infinite alternate;
+            border: 3px solid gold;
+        }
+
+        /* Hiệu ứng đèn lồng di chuyển nhẹ nhàng */
+        @keyframes float {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(25px); }
+        }
+
+        .lantern::before {
+            content: '';
+            position: absolute;
+            width: 12px;
+            height: 25px;
+            background-color: gold;
+            bottom: -25px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 50%;
+            box-shadow: 0 0 10px gold;
+        }
+
+        .lantern::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            height: 35px;
+            background-color: gold;
+            bottom: -60px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .lantern .tassel {
+            position: absolute;
+            bottom: -75px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 3px;
+            height: 60px;
+            background-color: gold;
+            box-shadow: 0 0 10px gold;
+            animation: sway 2s infinite alternate;
+        }
+
+        /* Hiệu ứng tua rua đung đưa */
+        @keyframes sway {
+            0% { transform: translateX(-5px); }
+            100% { transform: translateX(5px); }
+        }
+
+        .lantern-1 { left: 15%; }
+        .lantern-2 { right: 15%; }
+
+        /* Tạo nhiều ngôi sao */
+        .star-1 { top: 10%; left: 20%; }
+        .star-2 { top: 30%; right: 25%; }
+        .star-3 { top: 50%; left: 40%; }
+        .star-4 { top: 70%; right: 35%; }
+        .star-5 { top: 20%; right: 15%; }
+    </style>
+</head>
+<body>
+    <div class="mooncake">
+        <div class="pattern"></div>
+        <div class="center-pattern">福</div> <!-- Ký tự Trung Quốc cho hoa văn -->
+    </div>
+    <div class="twinkling-text">Chúc Bơ Trung Thu Vui Vẻ :3</div>
+
+    <!-- Ngôi sao lấp lánh -->
+    <div class="star star-1"></div>
+    <div class="star star-2"></div>
+    <div class="star star-3"></div>
+    <div class="star star-4"></div>
+    <div class="star star-5"></div>
+
+    <!-- Đèn lồng phát sáng tròn hơn -->
+    <div class="lantern lantern-1">
+        <div class="tassel"></div>
+    </div>
+    <div class="lantern lantern-2">
+        <div class="tassel"></div>
+    </div>
+</body>
+</html>
